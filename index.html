@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lady Driver Service | Perkhidmatan Pemandu Wanita Selamat & Selesa</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET & THEME VARIABLES */
+        :root {
+            color-scheme: light;
+            --primary: #E6004C;
+            --primary-hover: #C5003E;
+            --primary-light: #FFF0F4;
+            --secondary: #FF85A1;
+            --accent-pink: #FCE4EC;
+            --dark-text: #1E2029;
+            --muted-text: #5A6275;
+            --light-bg: #FFF9FA;
+            --card-bg: #FFFFFF;
+            --border-color: #F1D4DC;
+            --shadow-sm: 0 4px 10px rgba(230, 0, 76, 0.04);
+            --shadow-md: 0 8px 20px rgba(230, 0, 76, 0.08);
+            --shadow-lg: 0 15px 30px rgba(230, 0, 76, 0.12);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* CONTAINER & LAYOUT */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 40px 0;
+            }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            border: 1px solid rgba(230, 0, 76, 0.15);
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            width: auto;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .btn-primary:active, .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #FFFFFF;
+        }
+
+        .btn-whatsapp:active, .btn-whatsapp:hover {
+            background-color: #1DA851;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* HEADER / NAVBAR */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            padding: 12px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            color: var(--dark-text);
+            background: var(--primary-light);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            border: 1px solid rgba(230, 0, 76, 0.1);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding-top: 110px;
+            padding-bottom: 50px;
+            background: linear-gradient(180deg, #FFF0F4 0%, var(--light-bg) 100%);
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 2.3rem;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            color: var(--muted-text);
+            margin-bottom: 24px;
+        }
+
+        .price-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        .price-tag .amount {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .price-tag .label {
+            font-size: 0.75rem;
+            color: var(--muted-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        .hero-card {
+            background: #FFFFFF;
+            border-radius: var(--radius-lg);
+            padding: 24px 20px;
+            box-shadow: var(--shadow-md);
+            border: 1.5px solid var(--border-color);
+            position: relative;
+            text-align: center;
+        }
+
+        .car-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        /* TRUST FEATURES SECTION */
+        .features {
+            background: #FFFFFF;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 20px 16px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin: 0 auto 12px auto;
+        }
+
+        .feature-card h3 {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 0.8rem;
+            color: var(--muted-text);
+        }
+
+        /* SUITABLE FOR SECTION */
+        .suitable-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .suitable-card {
+            background: #FFFFFF;
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .suitable-card i {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .suitable-card span {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* FARE CALCULATOR SECTION */
+        .calc-box {
+            background: #FFFFFF;
+            border: 2px dashed var(--secondary);
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+            width: 100%;
+        }
+
+        .calc-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid #E2E8F0;
+            font-size: 0.95rem;
+            outline: none;
+            background: #FFFFFF;
+            color: var(--dark-text);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(230, 0, 76, 0.1);
+        }
+
+        select.form-control {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E6004C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 36px;
+        }
+
+        .calc-result {
+            grid-column: span 2;
+            background: var(--primary-light);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            margin-top: 8px;
+        }
+
+        .calc-result-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 4px 0;
+        }
+
+        /* AREA & TIME INFO */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #FFFFFF;
+            padding: 24px 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .area-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .area-tag {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid rgba(230, 0, 76, 0.1);
+        }
+
+        .time-list {
+            list-style: none;
+        }
+
+        .time-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #E2E8F0;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .peak-hours-alert {
+            margin-top: 14px;
+            background: #FFF8E1;
+            color: #8C6B00;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #FFE082;
+        }
+
+        /* BOOKING FORM SECTION */
+        .booking-card {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            box-shadow: var(--shadow-md);
+            border: 1.5px solid var(--border-color);
+            width: 100%;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            max-width: 750px;
+            margin: 20px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: #FFFFFF;
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-item p {
+            color: var(--muted-text);
+            font-size: 0.85rem;
+            padding-left: 24px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #181920;
+            color: #FFFFFF;
+            padding: 40px 0 80px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .footer p {
+            color: #94A3B8;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2D3748;
+            margin-top: 20px;
+            padding-top: 16px;
+            font-size: 0.75rem;
+            color: #64748B;
+        }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            transition: all 0.2s ease;
+        }
+
+        .float-whatsapp:active {
+            transform: scale(0.92);
+        }
+
+        /* MOBILE SPECIFIC FIXES */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .price-tag {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .calc-form {
+                grid-template-columns: 1fr;
+            }
+
+            .calc-result {
+                grid-column: span 1;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row-mobile {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-car-side"></i> Lady Driver
+                </a>
+                <a href="https://wa.me/60133349565?text=Hai,%20saya%20nak%20tanya%20mengenai%20servis%20Lady%20Driver" class="nav-phone" target="_blank">
+                    <i class="fa-brands fa-whatsapp text-primary"></i> 013 334 9565
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge"><i class="fa-solid fa-shield-heart"></i> Pick & Drop Off Services</span>
+                    <h1 class="hero-title serif">
+                        Perkhidmatan Pemandu Wanita <span>Selamat, Selesa & Mesra.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Nak pergi kerja? Hospital? Airport? Shopping? Atau tiada siapa yang boleh hantar? Jangan risau, saya boleh teman dan hantar anda ke mana jua destinasi pilihan.
+                    </p>
+                    
+                    <div class="price-tag">
+                        <div>
+                            <div class="label">Tambang Bermula</div>
+                            <div class="amount">RM 1.50 <span style="font-size: 0.8rem; font-weight: normal; color: var(--muted-text);">/ 1 KM</span></div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <a href="#booking" class="btn btn-primary btn-block" style="max-width: 280px;">
+                            <i class="fa-solid fa-calendar-check"></i> Tempah Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-container">
+                    <div class="hero-card">
+                        <span class="car-badge">HONDA CITY GM6 ( KELABU ) 2018</span>
+                        <div style="padding: 15px 0 10px 0;">
+                            <!-- SVG Sedan Kelabu (Honda City GM6 Style) -->
+                            <svg viewBox="0 0 500 240" width="100%" height="auto" style="max-height: 180px;">
+                                <defs>
+                                    <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#8C929A;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#B0B6BE;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M30,160 L60,110 Q100,65 250,60 Q380,65 450,110 L480,160 Q495,165 495,190 L495,200 L15,200 L15,190 Q15,165 30,160 Z" fill="url(#carGrad)" />
+                                <path d="M90,110 L180,75 L250,75 L250,110 Z" fill="#E2F1FF" opacity="0.85" />
+                                <path d="M260,110 L260,75 L330,75 L390,110 Z" fill="#E2F1FF" opacity="0.85" />
+                                <ellipse cx="460" cy="155" rx="14" ry="7" fill="#FFF3CD" />
+                                <circle cx="100" cy="200" r="30" fill="#2D3142" />
+                                <circle cx="100" cy="200" r="14" fill="#CBD5E1" />
+                                <circle cx="400" cy="200" r="30" fill="#2D3142" />
+                                <circle cx="400" cy="200" r="14" fill="#CBD5E1" />
+                            </svg>
+                        </div>
+                        <p style="font-weight: 700; color: var(--dark-text); font-size: 0.95rem;">Honda City GM6 (Kelabu) 2018</p>
+                        <p style="font-size: 0.8rem; color: var(--muted-text);">Bersih, Selesa & Diselenggara Baik</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST FEATURES -->
+    <section class="section features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3>LADY DRIVER</h3>
+                    <p>Pemandu wanita berpengalaman, selamat & dijamin privasi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3>SAFE & COMFORT</h3>
+                    <p>Pemanduan cermat, kabin bersih, wangi dan selesa.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-house-chimney-user"></i>
+                    </div>
+                    <h3>DOOR TO DOOR</h3>
+                    <p>Diambil & dihantar terus dari pintu ke pintu lokasi anda.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-face-smile-beam"></i>
+                    </div>
+                    <h3>RELIABLE</h3>
+                    <p>Layanan mesra, jujur dan menepati masa janjian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUITABLE FOR SECTION -->
+    <section class="section" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Sesuai Untuk Siapa?</span>
+                <h2 style="font-size: 1.5rem;">Sesuai Untuk Golongan Berikut:</h2>
+                <p style="color: var(--muted-text); font-size: 0.85rem;">Mengutamakan keselesaan pelanggan wanita serta keluarga.</p>
+            </div>
+
+            <div class="suitable-grid">
+                <div class="suitable-card">
+                    <i class="fa-solid fa-person-dress"></i>
+                    <span>Perempuan / Wanita</span>
+                </div>
+                <div class="suitable-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Pelajar / Student</span>
+                </div>
+                <div class="suitable-card">
+                    <i class="fa-solid fa-person-cane"></i>
+                    <span>Warga Emas</span>
+                </div>
+                <div class="suitable-card">
+                    <i class="fa-solid fa-baby-carriage"></i>
+                    <span>Ibu & Anak</span>
+                </div>
+                <div class="suitable-card" style="grid-column: 1 / -1;">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Sesiapa yang lebih selesa dengan pemandu wanita</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FARE CALCULATOR SECTION -->
+    <section class="section" style="background: #FFFFFF;">
+        <div class="container">
+            <div class="calc-box text-center">
+                <span class="badge"><i class="fa-solid fa-calculator"></i> Pengira Anggaran Tambang</span>
+                <h2 style="font-size: 1.4rem;">Kira Anggaran Tambang Anda</h2>
+                <p style="color: var(--muted-text); font-size: 0.85rem;">Masukkan anggaran jarak untuk pengiraan awal kos dasar.</p>
+
+                <form id="calcForm" class="calc-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="distance">Anggaran Jarak (KM)</label>
+                        <input type="number" id="distance" class="form-control" placeholder="Contoh: 10" min="1" inputmode="numeric">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeType">Waktu Perjalanan</label>
+                        <select id="timeType" class="form-control">
+                            <option value="normal">Waktu Biasa</option>
+                            <option value="peak">Waktu Puncak / Peak Hours (+RM2 - RM6)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-result">
+                        <span style="font-size: 0.85rem; color: var(--muted-text);">Anggaran Tambang:</span>
+                        <div class="calc-result-price" id="calcPrice">RM 0.00</div>
+                        <small style="color: var(--muted-text); font-size: 0.75rem;">*Minimum RM1.50/KM. Tidak termasuk caj tol jika ada.</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- AREA COVERAGE & OPERATING HOURS -->
+    <section class="section" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="info-grid">
+                <!-- Area Cover -->
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-map-location-dot"></i> Kawasan Liputan</h3>
+                    <p style="margin-bottom: 16px; color: var(--muted-text); font-size: 0.85rem;">Menyediakan perkhidmatan di sekitar lokasi utama berikut:</p>
+                    <div class="area-tags">
+                        <span class="area-tag"><i class="fa-solid fa-location-dot"></i> Cheras</span>
+                        <span class="area-tag"><i class="fa-solid fa-location-dot"></i> Ampang</span>
+                        <span class="area-tag"><i class="fa-solid fa-location-dot"></i> Alam Damai</span>
+                        <span class="area-tag"><i class="fa-solid fa-location-dot"></i> Setiawangsa</span>
+                        <span class="area-tag"><i class="fa-solid fa-location-dot"></i> Kajang</span>
+                        <span class="area-tag"><i class="fa-solid fa-location-dot"></i> & sekitar Lembah Klang</span>
+                    </div>
+                </div>
+
+                <!-- Operating Hours -->
+                <div class="info-card">
+                    <h3><i class="fa-clock fa-regular"></i> Waktu Operasi</h3>
+                    <ul class="time-list">
+                        <li>
+                            <span>Isnin - Jumaat (Weekdays):</span>
+                            <span class="text-primary">5:00 PM - MIDNIGHT</span>
+                        </li>
+                        <li>
+                            <span>Sabtu - Ahad (Weekend):</span>
+                            <span class="text-primary">8:00 AM - MIDNIGHT</span>
+                        </li>
+                    </ul>
+
+                    <div class="peak-hours-alert">
+                        <i class="fa-solid fa-bell" style="font-size: 1rem;"></i>
+                        <div>
+                            <strong>Waktu Puncak (Peak Hours):</strong> Extra Caj <strong>RM 2 - RM 6</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING FORM SECTION -->
+    <section class="section" id="booking" style="background: #FFFFFF;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 24px;">
+                <span class="badge"><i class="fa-solid fa-paper-plane"></i> Tempahan Mudah</span>
+                <h2 style="font-size: 1.5rem;">Hantar Tempahan Anda</h2>
+                <p style="color: var(--muted-text); font-size: 0.85rem;">Isi borang di bawah untuk terus hantar butiran ke WhatsApp.</p>
+            </div>
+
+            <div class="booking-card">
+                <form id="whatsappForm">
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label for="pickup">Lokasi Ambil (Pick Up)</label>
+                        <input type="text" id="pickup" class="form-control" placeholder="Contoh: LRT Cheras / Rumah Alam Damai" required>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label for="dropoff">Lokasi Hantar (Drop Off)</label>
+                        <input type="text" id="dropoff" class="form-control" placeholder="Contoh: Hospital Ampang / KLCC" required>
+                    </div>
+
+                    <div class="form-row-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                        <div class="form-group">
+                            <label for="bookingDate">Tarikh</label>
+                            <input type="date" id="bookingDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingTime">Masa</label>
+                            <input type="time" id="bookingTime" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="notes">Nota Tambahan / Tujuan (Opsional)</label>
+                        <textarea id="notes" class="form-control" rows="2" placeholder="Contoh: Bawa anak kecil, barang sedikit banyak, dll."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-whatsapp btn-block">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hantar Tempahan ke WhatsApp
+                    </button>
+                    <p style="text-align: center; font-size: 0.78rem; color: var(--muted-text); margin-top: 10px;">
+                        <em>Insya-Allah saya akan bantu mengikut kekosongan jadual. ♥</em>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Soalan Lazim</span>
+                <h2 style="font-size: 1.4rem;">Soalan Yang Kerap Ditanya</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-circle-question text-primary"></i> Bolehkah lelaki naik servis ini?</h4>
+                    <p>Servis ini diutamakan khusus untuk penumpang wanita, warga emas, ibu & anak, atau lelaki yang ditemani ahli keluarga wanita.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-circle-question text-primary"></i> Adakah perlu booking awal?</h4>
+                    <p>Ya, sangat digalakkan untuk membuat tempahan sekurang-kurangnya beberapa jam awal untuk memastikan kekosongan slot.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-circle-question text-primary"></i> Bagaimana cara pembayaran?</h4>
+                    <p>Pembayaran boleh dibuat secara Tunai (Cash) atau Pindahan Dalam Talian (Online Banking / DuitNow QR) selepas perjalanan selesai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">LADY DRIVER SERVICE</div>
+            <p>Your ride, your comfort, my priority. ♥</p>
+            <div style="margin-top: 12px;">
+                <a href="https://wa.me/60133349565" style="color: #FFFFFF; text-decoration: underline; font-weight: 700; font-size: 0.9rem;" target="_blank">
+                    <i class="fa-solid fa-phone"></i> 013 334 9565
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lady Driver Service. Hak Cipta Terpelihara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/60133349565?text=Hai,%20kalau%20perlukan%20Lady%20Driver%20bolehkah%20saya%20semak%20jadual?" class="float-whatsapp" target="_blank" title="Chat WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set tarikh minimum (hari ini) untuk input borang tarikh
+            const dateInput = document.getElementById('bookingDate');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        });
+
+        // Interactive Fare Calculator Logic
+        const distanceInput = document.getElementById('distance');
+        const timeTypeSelect = document.getElementById('timeType');
+        const calcPriceDisplay = document.getElementById('calcPrice');
+
+        function calculateFare() {
+            const distance = parseFloat(distanceInput.value) || 0;
+            const timeType = timeTypeSelect.value;
+
+            if (distance <= 0) {
+                calcPriceDisplay.textContent = 'RM 0.00';
+                return;
+            }
+
+            // Base rate RM1.50 per KM
+            let total = distance * 1.50;
+
+            // Extra charge for peak hours
+            if (timeType === 'peak') {
+                total += 4.00; // Peak hours average charge
+            }
+
+            calcPriceDisplay.textContent = 'RM ' + total.toFixed(2);
+        }
+
+        distanceInput.addEventListener('input', calculateFare);
+        timeTypeSelect.addEventListener('change', calculateFare);
+
+        // WhatsApp Direct Booking Form Logic
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const pickup = document.getElementById('pickup').value.trim();
+            const dropoff = document.getElementById('dropoff').value.trim();
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+            const notes = document.getElementById('notes').value.trim();
+
+            const phoneNumber = "60133349565";
+
+            // Format message
+            let message = `*TEMPAHAN LADY DRIVER SERVICE*\n\n`;
+            message += `📍 *Lokasi Ambil:* ${pickup}\n`;
+            message += `🏁 *Lokasi Hantar:* ${dropoff}\n`;
+            message += `📅 *Tarikh:* ${date}\n`;
+            message += `⏰ *Masa:* ${time}\n`;
+            if (notes) {
+                message += `📝 *Nota:* ${notes}\n`;
+            }
+            message += `\nAdakah slot ini masih kosong? Terima kasih!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
+
+```
